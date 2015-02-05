@@ -6,5 +6,6 @@
 		<% end %>
 	</ul>
 	<% ("A"..."Z").each do |letter| %>
-			<%= letter %>
+			<%= link_to(letter, contact_by_letter_path(letter)) %>
 	<% end %>
+	<%= link_to("Add new", new_contact_path) %>

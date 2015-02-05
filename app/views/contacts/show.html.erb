@@ -1,5 +1,5 @@
 	<h1><%= "Contact ID: #{params[:id]}" %></h1>
-	<h3><a href="/">Go home</a><br></h3>
+	<h3><%= link_to("Home", contacts_path) %></h3>
 	<b><%= @contact.name %></b><br>
 	<% @contact.phonenumbers.each do |number| %>
 		<%= number.phonenumber %>
