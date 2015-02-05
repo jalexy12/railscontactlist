@@ -1,0 +1,39 @@
+<%= form_for @contact do |f| %>
+	<ul>
+		<li>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		</li>
+		<br>
+		<li>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+		</li>
+		<br>
+   	 <%= f.fields_for :phonenumbers do |phonenumbers_form| %>
+	      <li>
+	        <%= phonenumbers_form.label :phonenumber %>
+	        <%= phonenumbers_form.text_field :phonenumber %>
+		 </li>
+	  <% end %>
+	 
+	   <%= f.fields_for :emails do |emails_form| %>
+			<li>
+				<%= emails_form.label :email %>
+				<%= emails_form.text_field :email %>
+			</li>
+		<% end %>
+		<%= f.submit "Save" %>
+ 	</ul>
+<% end %>
+
+
+	<% if @contact.errors.any? %>
+	<ul>
+		<% @contact.errors.full_messages.each do |error_msg| %>
+		  <li><%= error_msg %></li>
+		  <% end %>
+	 </ul>
+	<% end %>
+	
+		
